@@ -30,6 +30,7 @@ class StudyBuddyView:
         self._repository = repository
 
     def zeigeDashboard(self) -> None:
+        """Zeigt Studienfortschritt, Notendurchschnitt und anstehende Prüfungen."""
         st.title("🎓 StudyBuddy")
         st.subheader("Mein Studienfortschritt")
 
@@ -152,7 +153,6 @@ class StudyBuddyView:
             else:
                 status_anzahlen[pruefung._status.value] += 1
 
-        # Bachelorarbeit als zusätzliche Leistung zählen
         
         # Bachelorarbeit als zusätzliche Leistung zählen
         if bachelorarbeit is not None:
@@ -281,6 +281,7 @@ class StudyBuddyView:
 
     
     def zeigeModule(self) -> None:
+        """Ermöglicht die Verwaltung und hierarchische Zuordnung von Modulen."""
         st.header("Meine Module")
 
         st.subheader("Neues Modul hinzufügen")
@@ -997,6 +998,7 @@ class StudyBuddyView:
 
     
     def bearbeiteModul(self) -> None:
+        """Ermöglicht die Bearbeitung von Prüfungsstatus, Terminen und Ergebnissen."""
         st.header("Prüfungsleistungen bearbeiten")
 
         module = self._studium.gibEinzelmodule()

@@ -92,7 +92,7 @@ class DatenbankRepository:
             """)
 
     def speichereStudium(self, studium: Studium) -> None:
-        """Speichert die grundlegenden Daten eines Studiums."""
+        """Speichert das Studium mit Modulen, Prüfungen und Bachelorarbeit."""
 
         if not isinstance(studium, Studium):
             raise ValueError("Es muss ein gültiges Studium übergeben werden.")
@@ -101,6 +101,8 @@ class DatenbankRepository:
 
         with closing(sqlite3.connect(self._dbPfad)) as verbindung:
             try:
+                # Alle Änderungen werden gemeinsam gespeichert.
+                # Tritt ein Fehler auf, werden sie vollständig zurückgesetzt.
                 verbindung.execute("BEGIN")
 
                 verbindung.execute(

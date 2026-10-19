@@ -6,6 +6,7 @@ from studybuddy.view import StudyBuddyView
 
 
 def main():
+    """Startet StudyBuddy und steuert die Einrichtung sowie die Seitennavigation."""
     st.set_page_config(
         page_title="StudyBuddy",
         page_icon="🎓",

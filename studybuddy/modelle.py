@@ -829,6 +829,9 @@ class Studium:
 
         gesamte_ects = bisherige_ects + offene_ects
 
+        # Berechnet anhand der bisherigen Noten und der noch
+        # offenen ECTS den Durchschnitt, der für das Notenziel
+        # in den verbleibenden Prüfungen erreicht werden muss.
         benoetigter_durchschnitt = (
             self._notenziel * gesamte_ects - bisherige_notensumme
         ) / Decimal(offene_ects)
